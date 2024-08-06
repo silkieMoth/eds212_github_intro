@@ -1,0 +1,74 @@
+---
+title: "day_2_exercises"
+author: "joshua paul cohen"
+format: html
+---
+
+```{r}
+
+# loading packages ----
+library(tidyverse)
+
+# define function
+# establish function by
+  # select expression
+  # than shortcut ctrl+alt+x
+  # name function
+eq1 <- function(x) {
+  3 * x^2 + 4
+}
+
+#crate data frame with a range of values to evaluate our function across ----
+# c = concatenate or combine
+my_data_range <- data.frame(x = c(1, 100))
+
+
+# plot our function as a continuous curve over our specified range of values in our df ----
+ggplot(data = my_data_range, aes(x = x)) + geom_function(fun = eq1)
+
+```
+
+```{r}
+#define function ----
+eq2 <- function(x) {
+  (2.4) - (5*x^3) + (2.1*x^2)
+}
+
+# make data frame
+my_data_range_2 <- data.frame(x = c(-50, 50))
+
+# plot it
+ggplot(data = my_data_range_2, aes(x=x)) + geom_function(fun = eq2)
+```
+
+```{r}
+# create function ----
+eq3 <- function(t) {
+  t^3
+}
+
+#find deriv
+deriv_of_t <- D(expression(t^3), "t")
+
+#store deriv as function
+deriv_of_t_func <- function(t) {
+  3 * t^2
+}
+
+# establish data frame ----
+my_data_range_3 <- data.frame(t = c(-5, 5))
+
+# make plot ----
+ggplot(data = my_data_range_3, aes(x = t)) + geom_function(fun = eq3, color = "red") + geom_function(fun = deriv_of_t_func, color = "blue")
+```
+
+```{r}
+#expression
+f_xyz <- expression((2*x*y) - (3*x^2*z^3))
+
+#partial with respect x ----
+df_dx <- D(expr = f_xyz, name = "x")
+
+```
+
+
