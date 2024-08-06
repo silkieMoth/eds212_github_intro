@@ -1,0 +1,9 @@
+---
+title: "gitub_intro"
+author: "Joshua Paul Cohen"
+format: html
+---
+
+please work
+
+does this work too
